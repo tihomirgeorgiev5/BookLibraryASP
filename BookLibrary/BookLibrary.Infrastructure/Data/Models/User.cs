@@ -17,12 +17,9 @@ namespace BookLibrary.Infrastructure.Data.Models
         public string Id { get; init; }
 
         [Required]
-        [Range(UserMinName,UserMaxName)]
-        public string FirstName { get; set; }
-
-        [Required]
-        [Range(UserMinName,UserMaxName)]
-        public string LastName { get; set; }
+        [MaxLength(MaxNameLength)]
+        public string Username { get; set; }
+ 
 
         [Required]
         
