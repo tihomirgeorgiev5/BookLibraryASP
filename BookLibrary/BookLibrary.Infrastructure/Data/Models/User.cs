@@ -23,8 +23,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         public int Age { get; set; }
 
 
-        [Required]
-        
+        [Required] 
         public string Email { get; set; }
 
         [Required]
