@@ -18,6 +18,8 @@ namespace BookLibrary.Infrastructure.Data
         public const int MaxNameLength = 20;
 
         public const int UserMinPassword = 5;
+        public const int PasswordMaxLength = 20;
+        public const int PasswordMaxLengthInDb = 64;
         public const int UserMinEmail = 10;
         public const int UserMaxEmail = 60;
         public const string UserEmailRegEx =

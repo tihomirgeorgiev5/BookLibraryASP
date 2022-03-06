@@ -28,5 +28,7 @@ namespace BookLibrary.Infrastructure.Data.Models
 
         [Required]
         public string Password { get; set; }
+
+        public bool IsReturn { get; set; }
     }
 }

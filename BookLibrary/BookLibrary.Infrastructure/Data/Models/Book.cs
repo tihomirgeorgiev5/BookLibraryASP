@@ -10,7 +10,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         public Book()
         {
             this.BookId = Guid.NewGuid().ToString();
-            this.BookCategories = new HashSet<BookCategory>();
+            this.Categories = new HashSet<Category>();
         }
 
         [Key]
@@ -53,7 +53,14 @@ namespace BookLibrary.Infrastructure.Data.Models
         [MaxLength(IdMaxLength)]
         public string LanguageId { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; set; }
+        [Required]
+        [MaxLength(IdMaxLength)]
+        public string OrderId { get; set; }
+
+
+        public ICollection<Category> Categories { get; set; }
+
+
     }
 }
 
