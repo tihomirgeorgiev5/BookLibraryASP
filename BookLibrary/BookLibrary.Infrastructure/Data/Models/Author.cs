@@ -7,14 +7,14 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Author()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.AuthorId = Guid.NewGuid().ToString();
             
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string Id { get; set; }
+        public string AuthorId { get; set; }
 
         [Required]
         [MaxLength(MaxNameLength)]

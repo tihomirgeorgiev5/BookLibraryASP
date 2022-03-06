@@ -8,13 +8,13 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public User()
         {
-            this.Id = Guid.NewGuid().ToString();
+            this.UserId = Guid.NewGuid().ToString();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string Id { get; init; }
+        public string UserId { get; init; }
 
         [Required]
         [MaxLength(MaxNameLength)]
