@@ -16,11 +16,16 @@ namespace BookLibrary.Infrastructure.Data
 
         public const int MinNameLength = 4;
         public const int MaxNameLength = 20;
+
         public const int UserMinPassword = 5;
         public const int UserMinEmail = 10;
         public const int UserMaxEmail = 60;
         public const string UserEmailRegEx =
             @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
+
+        public const int LanguageCodeMinLength = 2;
+        public const int LanguageCodeMaxLength = 3;
+       
 
     }
 }
