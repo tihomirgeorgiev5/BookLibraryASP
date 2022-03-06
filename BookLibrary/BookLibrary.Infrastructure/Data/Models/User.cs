@@ -19,7 +19,9 @@ namespace BookLibrary.Infrastructure.Data.Models
         [Required]
         [MaxLength(MaxNameLength)]
         public string Username { get; set; }
- 
+
+        public int Age { get; set; }
+
 
         [Required]
         
