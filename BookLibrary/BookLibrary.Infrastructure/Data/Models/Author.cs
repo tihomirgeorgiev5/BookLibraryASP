@@ -8,14 +8,14 @@ namespace BookLibrary.Infrastructure.Data.Models
         public Author()
         {
             this.Books = new HashSet<Book>();
-            this.AuthorId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string AuthorId { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [MaxLength(MaxNameLength)]

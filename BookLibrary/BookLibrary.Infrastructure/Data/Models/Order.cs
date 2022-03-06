@@ -7,13 +7,13 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Order()
         {
-            this.OrderId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string OrderId { get; init; }
+        public string Id { get; init; }
 
         public DateTime? BookGetTime { get; set; }
         public DateTime? BookTakeTime { get; set; }

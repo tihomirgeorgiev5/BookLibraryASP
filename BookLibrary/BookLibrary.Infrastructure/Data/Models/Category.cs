@@ -7,20 +7,20 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Category()
         {
-            this.CategoryId = Guid.NewGuid().ToString();
-            this.BookCategories = new HashSet<BookCategory>();
+            this.Id = Guid.NewGuid().ToString();
+            this.Books = new HashSet<Book>();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string CategoryId { get; set; }
+        public string Id { get; set; }
 
         [Required]
         [MaxLength(MaxNameLength)]
         public string Name { get; set; }
 
-        public ICollection<BookCategory> BookCategories { get; set; }
+        public ICollection<Book> Books { get; init; }
 
     }
 }

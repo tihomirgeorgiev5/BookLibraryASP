@@ -12,13 +12,13 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Publisher()
         {
-            this.PublisherId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string PublisherId { get; init; }
+        public string Id { get; init; }
 
         [Required]
         [MaxLength(MaxNameLength)]

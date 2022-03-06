@@ -8,17 +8,17 @@ using static BookLibrary.Infrastructure.Data.DataConstants;
 
 namespace BookLibrary.Infrastructure.Data.Models
 {
-    public class Language
+    public class BookLanguage
     {
-        public Language()
+        public BookLanguage()
         {
-            this.LanguageId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string LanguageId { get; init; }
+        public string Id { get; init; }
 
         [Required]
         [MaxLength(LanguageCodeMaxLength)]

@@ -9,14 +9,14 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Book()
         {
-            this.BookId = Guid.NewGuid().ToString();
+            this.Id = Guid.NewGuid().ToString();
             this.Categories = new HashSet<Category>();
         }
 
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
-        public string BookId { get; init; }
+        public string Id { get; init; }
 
         [Required]
         [MaxLength(BookTitleMaxLength)]
@@ -39,23 +39,24 @@ namespace BookLibrary.Infrastructure.Data.Models
         public AgeRestriction AgeRestriction { get; set; }
 
         [Required]
-        [MaxLength(IdMaxLength)]
+        [ForeignKey(nameof(Author))]
         public string AuthorId { get; set; }
-
-       
-        public Author Author { get; set; }
+        public virtual Author Author { get; set; }
 
         [Required]
-        [MaxLength(IdMaxLength)]
+        [ForeignKey(nameof(Publisher))]
         public string PublisherId { get; set; }
+        public virtual Publisher Publisher { get; set; }
 
         [Required]
-        [MaxLength(IdMaxLength)]
+        [ForeignKey(nameof(BookLanguage))]
         public string LanguageId { get; set; }
+        public virtual BookLanguage Language { get; set; }
 
         [Required]
-        [MaxLength(IdMaxLength)]
+        [ForeignKey(nameof(Order))]
         public string OrderId { get; set; }
+        public virtual Order Order { get; set; }
 
 
         public ICollection<Category> Categories { get; set; }
