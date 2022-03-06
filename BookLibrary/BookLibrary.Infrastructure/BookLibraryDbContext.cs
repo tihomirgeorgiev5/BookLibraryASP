@@ -3,9 +3,9 @@ using Microsoft.EntityFrameworkCore;
 
 namespace BookLibrary.Data
 {
-    public class ApplicationDbContext : IdentityDbContext
+    public class BookLibraryDbContext : IdentityDbContext
     {
-        public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options)
+        public BookLibraryDbContext(DbContextOptions<BookLibraryDbContext> options)
             : base(options)
         {
         }
