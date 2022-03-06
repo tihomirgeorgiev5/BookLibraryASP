@@ -11,10 +11,11 @@ namespace BookLibrary.Infrastructure.Data
         public const int IdMaxLength = 40;
 
         public const int BookTitleMaxLength = 50;
+        public const int BookDescriptionMinLength = 5;
         public const int BookDescriptionMaxLength = 1000;
 
-        public const int UserMinUsername = 4;
-        public const int UserMaxUsername = 20;
+        public const int UserMinName = 4;
+        public const int UserMaxName = 20;
         public const int UserMinPassword = 5;
         public const int UserMinEmail = 10;
         public const int UserMaxEmail = 60;
