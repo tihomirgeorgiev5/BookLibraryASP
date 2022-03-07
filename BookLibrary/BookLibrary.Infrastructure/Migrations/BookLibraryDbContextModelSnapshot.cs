@@ -34,7 +34,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("CategoriesId");
 
-                    b.ToTable("BookCategory");
+                    b.ToTable("BookCategory", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Author", b =>
@@ -55,7 +55,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Authors", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Book", b =>
@@ -115,7 +115,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Books", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookAuthor", b =>
@@ -130,7 +130,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthors");
+                    b.ToTable("BookAuthors", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookCategory", b =>
@@ -145,7 +145,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Bookcategories");
+                    b.ToTable("Bookcategories", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookLanguage", b =>
@@ -166,7 +166,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BookLanguages");
+                    b.ToTable("BookLanguages", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Category", b =>
@@ -182,7 +182,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories");
+                    b.ToTable("Categories", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Order", b =>
@@ -204,7 +204,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders");
+                    b.ToTable("Orders", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Publisher", b =>
@@ -220,7 +220,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers");
+                    b.ToTable("Publishers", (string)null);
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.User", b =>
@@ -250,7 +250,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users");
+                    b.ToTable("Users", (string)null);
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

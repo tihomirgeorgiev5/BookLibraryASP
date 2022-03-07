@@ -5,9 +5,9 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
+var connectionString = builder.Configuration.GetConnectionString(@"Server=DESKTOP-SB9MJ7T\SQLEXPRESS;Database=BookLibrary;Trusted_Connection=True;Integrated Security=True;");
 builder.Services.AddDbContext<BookLibraryDbContext>(options =>
-    options.UseSqlServer(connectionString));
+    options.UseSqlServer(@"Server=DESKTOP-SB9MJ7T\SQLEXPRESS;Database=BookLibrary;Trusted_Connection=True;Integrated Security=True;"));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
