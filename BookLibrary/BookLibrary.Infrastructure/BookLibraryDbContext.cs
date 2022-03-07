@@ -21,6 +21,14 @@ namespace BookLibrary.Data
         public DbSet<Publisher> Publishers { get; init; }
         public DbSet<User> Users { get; init; }
 
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            if (!optionsBuilder.IsConfigured)
+            {
+                optionsBuilder.UseSqlServer(@"Server=DESKTOP-SB9MJ7T\SQLEXPRESS;Database=BookLibrary;Integrated Security=True;");
+            }
+        }
+
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);

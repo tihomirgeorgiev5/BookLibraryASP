@@ -6,18 +6,13 @@ namespace BookLibrary.Infrastructure.Data.Models
 {
     public class BookCategory
     {
-        [MaxLength(IdMaxLength)]
-        public string BookId { get; set; }
-
         [ForeignKey(nameof(Book))]
+        public string BookId { get; set; } 
         public Book Book { get; set; }
 
 
-
-        [MaxLength(IdMaxLength)]
-        public string CategoryId { get; set; }
-
         [ForeignKey(nameof(Category))]
+        public string CategoryId { get; set; }   
         public Category Category { get; set; }
     }
 }

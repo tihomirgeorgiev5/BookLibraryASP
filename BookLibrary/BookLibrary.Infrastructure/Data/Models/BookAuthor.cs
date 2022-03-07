@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BookLibrary.Infrastructure.Data.Models
+﻿namespace BookLibrary.Infrastructure.Data.Models
 {
+    using System.ComponentModel.DataAnnotations.Schema;
     public class BookAuthor
     {
         [ForeignKey(nameof(Book))]
