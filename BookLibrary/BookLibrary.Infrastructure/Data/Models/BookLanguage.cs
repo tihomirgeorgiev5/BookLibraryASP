@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -27,5 +28,10 @@ namespace BookLibrary.Infrastructure.Data.Models
         [Required]
         [MaxLength(MaxNameLength)]
         public string LanguageName { get; set; }
+
+        [Required]
+        [ForeignKey(nameof(Book))]
+        public string BookId { get; set; }
+        public virtual Book Book { get; set; }
     }
 }

@@ -8,7 +8,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         public Category()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Books = new HashSet<Book>();
+            this.BookCategories = new HashSet<BookCategory>();
         }
 
         [Key]
@@ -20,7 +20,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         [MaxLength(MaxNameLength)]
         public string Name { get; set; }
 
-        public ICollection<Book> Books { get; init; }
+        public ICollection<BookCategory> BookCategories { get; set; }
 
     }
 }

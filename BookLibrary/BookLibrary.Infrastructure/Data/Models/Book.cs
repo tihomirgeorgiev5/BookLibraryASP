@@ -10,7 +10,8 @@ namespace BookLibrary.Infrastructure.Data.Models
         public Book()
         {
             this.Id = Guid.NewGuid().ToString();
-            this.Categories = new HashSet<Category>();
+            this.BookCategories = new HashSet<BookCategory>();
+            this.BookAuthors = new HashSet<BookAuthor>();
         }
 
         [Key]
@@ -38,20 +39,12 @@ namespace BookLibrary.Infrastructure.Data.Models
 
         public AgeRestriction AgeRestriction { get; set; }
 
-        [Required]
-        [ForeignKey(nameof(Author))]
-        public string AuthorId { get; set; }
-        public virtual Author Author { get; set; }
 
         [Required]
         [ForeignKey(nameof(Publisher))]
         public string PublisherId { get; set; }
         public virtual Publisher Publisher { get; set; }
 
-        [Required]
-        [ForeignKey(nameof(BookLanguage))]
-        public string LanguageId { get; set; }
-        public virtual BookLanguage Language { get; set; }
 
         [Required]
         [ForeignKey(nameof(Order))]
@@ -59,7 +52,9 @@ namespace BookLibrary.Infrastructure.Data.Models
         public virtual Order Order { get; set; }
 
 
-        public ICollection<Category> Categories { get; set; }
+        public ICollection<BookCategory> BookCategories { get; set; }
+        public ICollection<BookAuthor> BookAuthors { get; set; }
+
 
 
     }

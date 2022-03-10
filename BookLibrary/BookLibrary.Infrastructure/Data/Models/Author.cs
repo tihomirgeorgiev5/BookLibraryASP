@@ -7,7 +7,7 @@ namespace BookLibrary.Infrastructure.Data.Models
     {
         public Author()
         {
-            this.Books = new HashSet<Book>();
+           
             this.Id = Guid.NewGuid().ToString();
             
         }
@@ -25,7 +25,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         [MaxLength(MaxNameLength)]
         public string LastName { get; set; }
 
-        public ICollection<Book> Books { get; set; }
+        
 
 
     }
