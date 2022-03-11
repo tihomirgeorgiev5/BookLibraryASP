@@ -35,12 +35,7 @@ namespace BookLibrary.Data
                 .Entity<BookCategory>()
                  .HasKey(b => new { b.BookId, b.CategoryId });
 
-            builder
-                .Entity<Book>()
-                .HasOne(b => b.Author)
-                .WithMany(i => i.Books)
-                .HasForeignKey(rt => rt.AuthorId)
-                .OnDelete(DeleteBehavior.Restrict);
+           
 
 
             

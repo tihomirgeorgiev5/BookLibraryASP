@@ -22,21 +22,6 @@ namespace BookLibrary.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder, 1L, 1);
 
-            modelBuilder.Entity("BookCategory", b =>
-                {
-                    b.Property<string>("BooksId")
-                        .HasColumnType("nvarchar(40)");
-
-                    b.Property<string>("CategoriesId")
-                        .HasColumnType("nvarchar(40)");
-
-                    b.HasKey("BooksId", "CategoriesId");
-
-                    b.HasIndex("CategoriesId");
-
-                    b.ToTable("BookCategory", (string)null);
-                });
-
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Author", b =>
                 {
                     b.Property<string>("Id")
@@ -55,7 +40,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Authors", (string)null);
+                    b.ToTable("Authors");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Book", b =>
@@ -67,10 +52,6 @@ namespace BookLibrary.Data.Migrations
                     b.Property<int>("AgeRestriction")
                         .HasColumnType("int");
 
-                    b.Property<string>("AuthorId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)");
-
                     b.Property<int>("Copies")
                         .HasColumnType("int");
 
@@ -80,10 +61,6 @@ namespace BookLibrary.Data.Migrations
 
                     b.Property<int>("EditionType")
                         .HasColumnType("int");
-
-                    b.Property<string>("LanguageId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("OrderId")
                         .IsRequired()
@@ -107,15 +84,11 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AuthorId");
-
-                    b.HasIndex("LanguageId");
-
                     b.HasIndex("OrderId");
 
                     b.HasIndex("PublisherId");
 
-                    b.ToTable("Books", (string)null);
+                    b.ToTable("Books");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookAuthor", b =>
@@ -130,7 +103,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthors", (string)null);
+                    b.ToTable("BookAuthors");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookCategory", b =>
@@ -145,13 +118,17 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasIndex("CategoryId");
 
-                    b.ToTable("Bookcategories", (string)null);
+                    b.ToTable("Bookcategories");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookLanguage", b =>
                 {
                     b.Property<string>("Id")
                         .HasMaxLength(40)
+                        .HasColumnType("nvarchar(40)");
+
+                    b.Property<string>("BookId")
+                        .IsRequired()
                         .HasColumnType("nvarchar(40)");
 
                     b.Property<string>("LanguageCode")
@@ -166,7 +143,9 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("BookLanguages", (string)null);
+                    b.HasIndex("BookId");
+
+                    b.ToTable("BookLanguages");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Category", b =>
@@ -182,7 +161,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Categories", (string)null);
+                    b.ToTable("Categories");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Order", b =>
@@ -204,7 +183,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Publisher", b =>
@@ -220,7 +199,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Publishers", (string)null);
+                    b.ToTable("Publishers");
                 });
 
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.User", b =>
@@ -250,7 +229,7 @@ namespace BookLibrary.Data.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Users", (string)null);
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -455,35 +434,8 @@ namespace BookLibrary.Data.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("BookCategory", b =>
-                {
-                    b.HasOne("BookLibrary.Infrastructure.Data.Models.Book", null)
-                        .WithMany()
-                        .HasForeignKey("BooksId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("BookLibrary.Infrastructure.Data.Models.Category", null)
-                        .WithMany()
-                        .HasForeignKey("CategoriesId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-                });
-
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Book", b =>
                 {
-                    b.HasOne("BookLibrary.Infrastructure.Data.Models.Author", "Author")
-                        .WithMany("Books")
-                        .HasForeignKey("AuthorId")
-                        .OnDelete(DeleteBehavior.Restrict)
-                        .IsRequired();
-
-                    b.HasOne("BookLibrary.Infrastructure.Data.Models.BookLanguage", "Language")
-                        .WithMany()
-                        .HasForeignKey("LanguageId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("BookLibrary.Infrastructure.Data.Models.Order", "Order")
                         .WithMany()
                         .HasForeignKey("OrderId")
@@ -495,10 +447,6 @@ namespace BookLibrary.Data.Migrations
                         .HasForeignKey("PublisherId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Author");
-
-                    b.Navigation("Language");
 
                     b.Navigation("Order");
 
@@ -514,7 +462,7 @@ namespace BookLibrary.Data.Migrations
                         .IsRequired();
 
                     b.HasOne("BookLibrary.Infrastructure.Data.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("BookAuthors")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -527,13 +475,13 @@ namespace BookLibrary.Data.Migrations
             modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookCategory", b =>
                 {
                     b.HasOne("BookLibrary.Infrastructure.Data.Models.Book", "Book")
-                        .WithMany()
+                        .WithMany("BookCategories")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.HasOne("BookLibrary.Infrastructure.Data.Models.Category", "Category")
-                        .WithMany()
+                        .WithMany("BookCategories")
                         .HasForeignKey("CategoryId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
@@ -541,6 +489,17 @@ namespace BookLibrary.Data.Migrations
                     b.Navigation("Book");
 
                     b.Navigation("Category");
+                });
+
+            modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.BookLanguage", b =>
+                {
+                    b.HasOne("BookLibrary.Infrastructure.Data.Models.Book", "Book")
+                        .WithMany()
+                        .HasForeignKey("BookId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Book");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -594,9 +553,16 @@ namespace BookLibrary.Data.Migrations
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Author", b =>
+            modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Book", b =>
                 {
-                    b.Navigation("Books");
+                    b.Navigation("BookAuthors");
+
+                    b.Navigation("BookCategories");
+                });
+
+            modelBuilder.Entity("BookLibrary.Infrastructure.Data.Models.Category", b =>
+                {
+                    b.Navigation("BookCategories");
                 });
 #pragma warning restore 612, 618
         }
