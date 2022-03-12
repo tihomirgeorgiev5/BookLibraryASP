@@ -48,4 +48,6 @@ app.UseHttpsRedirection()
     
 app.MapRazorPages();
 
+app.ApplicationServices
+
 app.Run();
