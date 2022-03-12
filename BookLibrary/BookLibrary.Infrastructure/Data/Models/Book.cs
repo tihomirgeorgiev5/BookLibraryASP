@@ -7,13 +7,7 @@ namespace BookLibrary.Infrastructure.Data.Models
 {
     public class Book
     {
-        public Book()
-        {
-            this.Id = Guid.NewGuid().ToString();
-            this.BookCategories = new HashSet<BookCategory>();
-            this.BookAuthors = new HashSet<BookAuthor>();
-        }
-
+       
         [Key]
         [Required]
         [MaxLength(IdMaxLength)]
@@ -24,38 +18,28 @@ namespace BookLibrary.Infrastructure.Data.Models
         public string Title { get; set; }
 
         [Required]
-        public string PictureUrl { get; set; }
+        [MaxLength(BookAuthorMaxLength)]
+        public string Author { get; set; }
 
         [Required]
-        [Range(BookDescriptionMinLength,BookDescriptionMaxLength)]
+        [MaxLength(BookPublisherMaxLength)]
+        public string Publisher { get; set; }
+
+        [Required]
+        public string ImageUrl { get; set; }
+
+        [Required]
+        [MaxLength(BookDescriptionMaxLength)]
+       
         public string Description { get; set; }
 
-        public EditionType EditionType { get; set; }
+        public int Pages { get; set; }
 
-  
-        public int Copies { get; set; }
+        public int Year { get; set; }
 
-        public DateTime? ReleaseDate { get; set; }
+        public int TypeId { get; set; }
 
-        public AgeRestriction AgeRestriction { get; set; }
-
-
-        [Required]
-        [ForeignKey(nameof(Publisher))]
-        public string PublisherId { get; set; }
-        public virtual Publisher Publisher { get; set; }
-
-
-        [Required]
-        [ForeignKey(nameof(Order))]
-        public string OrderId { get; set; }
-        public virtual Order Order { get; set; }
-
-
-        public ICollection<BookCategory> BookCategories { get; set; }
-        public ICollection<BookAuthor> BookAuthors { get; set; }
-
-
+        public Type Type { get; set; }
 
     }
 }

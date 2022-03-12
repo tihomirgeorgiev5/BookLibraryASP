@@ -13,6 +13,9 @@ namespace BookLibrary.Infrastructure.Data
         public const int BookTitleMaxLength = 50;
         public const int BookDescriptionMinLength = 5;
         public const int BookDescriptionMaxLength = 1000;
+        public const int BookAuthorMaxLength = 40;
+        public const int BookPublisherMaxLength = 30;
+
 
         public const int MinNameLength = 4;
         public const int MaxNameLength = 20;
