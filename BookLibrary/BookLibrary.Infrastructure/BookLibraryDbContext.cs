@@ -13,7 +13,7 @@ namespace BookLibrary.Data
 
        // public DbSet<Author> Authors { get; init; }
         public DbSet<Book> Books { get; init; }
-        public DbSet<Type> Types { get; init; }
+        public DbSet<Category> Categories { get; init; }
        // public DbSet<BookCategory> Bookcategories /{ get; /init; }
        // public DbSet<BookLanguage> BookLanguages /{ get; /init; }
        // public DbSet<Category> Categories { get; init; }
@@ -25,6 +25,13 @@ namespace BookLibrary.Data
 
         protected override void OnModelCreating(ModelBuilder builder)
         {
+            builder
+                .Entity<Book>()
+                .HasOne(b => b.Category)
+                .WithMany(c => c.Books)
+                .HasForeignKey(c => c.CategoryId)
+                .OnDelete(DeleteBehavior.Restrict);
+
             base.OnModelCreating(builder);
 
           //builder
