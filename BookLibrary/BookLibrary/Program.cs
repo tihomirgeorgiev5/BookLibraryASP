@@ -1,5 +1,5 @@
 using BookLibrary.Data;
-using BookLibrary.Infrastructure;
+using BookLibrary.Extensions;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 

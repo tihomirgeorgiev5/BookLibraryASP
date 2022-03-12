@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 
-namespace BookLibrary.Infrastructure
+namespace BookLibrary.Extensions
 {
     public static class ApplicationBuilderExtensions
     {
