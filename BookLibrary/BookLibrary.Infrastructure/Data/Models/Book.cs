@@ -37,9 +37,9 @@ namespace BookLibrary.Infrastructure.Data.Models
 
         public int Year { get; set; }
 
-        public int TypeId { get; set; }
+        public int CategoryId { get; set; }
 
-        public Type Type { get; set; }
+        public Category Category { get; set; }
 
     }
 }

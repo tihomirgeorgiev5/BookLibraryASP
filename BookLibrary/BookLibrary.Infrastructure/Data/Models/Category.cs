@@ -3,9 +3,9 @@ using static BookLibrary.Infrastructure.Data.DataConstants;
 
 namespace BookLibrary.Infrastructure.Data.Models
 {
-    public class Type
+    public class Category
     {
-        public Type()
+        public Category()
         {
            
             this.Books = new List<Book>();

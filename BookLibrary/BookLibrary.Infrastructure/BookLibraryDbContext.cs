@@ -13,7 +13,7 @@ namespace BookLibrary.Data
 
        // public DbSet<Author> Authors { get; init; }
         public DbSet<Book> Books { get; init; }
-       // public DbSet<BookAuthor> BookAuthors { get; //init; }
+        public DbSet<Type> Types { get; init; }
        // public DbSet<BookCategory> Bookcategories /{ get; /init; }
        // public DbSet<BookLanguage> BookLanguages /{ get; /init; }
        // public DbSet<Category> Categories { get; init; }
