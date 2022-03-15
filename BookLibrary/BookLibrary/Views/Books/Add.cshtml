@@ -4,29 +4,41 @@
     ViewData["Title"] = "Add Book";
 }
 
-<form method="post">
+<div class="container">
+    <div class="row">
+<div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+    <h2 class="heading-margin text-center">Add Book</h2>
+    <form method="post">
   <div class="form-group">
     <label asp-for="Title"></label>
     <input asp-for="Title" class="form-control" placeholder="Da Vinci Code, Harry Potter and the Deathly Hallows, etc...">
   </div>
-  <div class="mb-3">
-    <label for="pwd" class="form-label">Password:</label>
-    <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pswd">
-  </div>
-  <div class="form-check mb-3">
-    <label class="form-check-label">
-      <input class="form-check-input" type="checkbox" name="remember"> Remember me
-    </label>
+  <div class="form-group">
+    <label asp-for="Author"></label>
+    <input asp-for="Author" class="form-control" placeholder="Dan Brown, Stephen King, etc...">
   </div>
   <div class="form-group">
-      <label for="exampleFormControlSelect">Example multiple select </label>
-      <select class="form-select" disabled>
-  <option>1</option>
-  <option>2</option>
-  <option>3</option>
-  <option>4</option>
+    <label asp-for="ImageUrl"></label>
+    <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
+  </div>
+  <div class="form-group">
+    <label asp-for="Description"></label>
+    <textarea asp-for="Description" rows="4" class="form-control" placeholder="This is the best book..."></textarea>
+  </div>
+  <div class="form-group">
+    <label asp-for="Year"></label>
+    <input asp-for="Year" class="form-control" placeholder="@DateTime.UtcNow.Year">
+  </div>
+  <div class="form-group">
+      <label asp-for="CategoryId"></label>
+      <select asp-for="CategoryId" class="form-control">
+  @foreach (var category in Model.Categories)
+  {
+      <option value="@category.Id">@category.Name</option>  
+  }
 </select>
   </div>
-  <button type="submit" class="btn btn-primary">Submit</button>
+
+  <input class="btn btn-primary" type="submit" value="Save" />
 </form>
 
