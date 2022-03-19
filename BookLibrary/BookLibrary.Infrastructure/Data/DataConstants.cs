@@ -12,7 +12,7 @@
 
 
         public const int MinNameLength = 4;
-        public const int MaxNameLength = 20;
+        public const int MaxNameLength = 100;
 
         public const int UserMinPassword = 5;
         public const int PasswordMaxLength = 20;

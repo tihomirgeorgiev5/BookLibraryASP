@@ -4,41 +4,43 @@
     ViewData["Title"] = "Add Book";
 }
 
-<div class="container">
-    <div class="row">
-<div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
-    <h2 class="heading-margin text-center">Add Book</h2>
-    <form method="post">
-  <div class="form-group">
-    <label asp-for="Title"></label>
-    <input asp-for="Title" class="form-control" placeholder="Da Vinci Code, Harry Potter and the Deathly Hallows, etc...">
-  </div>
-  <div class="form-group">
-    <label asp-for="Author"></label>
-    <input asp-for="Author" class="form-control" placeholder="Dan Brown, Stephen King, etc...">
-  </div>
-  <div class="form-group">
-    <label asp-for="ImageUrl"></label>
-    <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
-  </div>
-  <div class="form-group">
-    <label asp-for="Description"></label>
-    <textarea asp-for="Description" rows="4" class="form-control" placeholder="This is the best book..."></textarea>
-  </div>
-  <div class="form-group">
-    <label asp-for="Year"></label>
-    <input asp-for="Year" class="form-control" placeholder="@DateTime.UtcNow.Year">
-  </div>
-  <div class="form-group">
-      <label asp-for="CategoryId"></label>
-      <select asp-for="CategoryId" class="form-control">
-  @foreach (var category in Model.Categories)
-  {
-      <option value="@category.Id">@category.Name</option>  
-  }
-</select>
-  </div>
 
-  <input class="btn btn-primary" type="submit" value="Save" />
-</form>
+<div class="row">
+    <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
+        <h2 class="heading-margin text-center">Add Book</h2>
+        <form method="post">
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" placeholder="Da Vinci Code, Harry Potter and the Deathly Hallows, etc...">
+            </div>
+            <div class="form-group">
+                <label asp-for="Author"></label>
+                <input asp-for="Author" class="form-control" placeholder="Dan Brown, Stephen King, etc...">
+            </div>
+            <div class="form-group">
+                <label asp-for="ImageUrl"></label>
+                <input asp-for="ImageUrl" class="form-control" placeholder="Your fine URL here...">
+            </div>
+            <div class="form-group">
+                <label asp-for="Description"></label>
+                <textarea asp-for="Description" rows="4" class="form-control" placeholder="This is the best book..."></textarea>
+            </div>
+            <div class="form-group">
+                <label asp-for="Year"></label>
+                <input asp-for="Year" class="form-control" placeholder="@DateTime.UtcNow.Year">
+            </div>
+            <div class="form-group">
+                <label asp-for="CategoryId"></label>
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
+                </select>
+            </div>
+
+            <input class="btn btn-primary" type="submit" value="Save" />
+        </form>
+    </div>
+</div>
 

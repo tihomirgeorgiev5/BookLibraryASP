@@ -19,14 +19,14 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options =>
                       options.Password.RequireNonAlphanumeric = false;
                       options.Password.RequireUppercase = false;
                       })
-    .AddEntityFrameworkStores<BookLibraryDbContext>();
+    .AddEntityFrameworkStores<BookLibraryDbContext>(); 
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 
-app.PrepareDatabase();
+//app.PrepareDatabase();
 
 if (app.Environment.IsDevelopment())
 {

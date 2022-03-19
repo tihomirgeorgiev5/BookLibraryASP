@@ -11,10 +11,10 @@ namespace BookLibrary.Infrastructure.Data.Models
             this.Books = new List<Book>();
         }
 
-        public int Id { get; set; }
+        public int Id { get; init; }
 
         [Required]
-        [MaxLength(MaxNameLength)]
+        
         public string Name { get; set; }
 
         public IEnumerable<Book> Books { get; init; }
