@@ -1,18 +1,21 @@
-﻿using BookLibrary.Core.Models.Books;
+﻿using BookLibrary.Infrastructure.Data.Models;
+using BookLibrary.Core.Models.Books;
 using BookLibrary.Data;
 using Microsoft.AspNetCore.Mvc;
 
-namespace BookLibrary.Controllers
+
+
+ namespace BookLibrary.Controllers
 {
     public class BooksController : Controller
     {
         private readonly BookLibraryDbContext data;
 
         public BooksController(BookLibraryDbContext data)
-        {
-            this.data = data;
+       
+           => this.data = data;
 
-        }
+        
         public IActionResult Add() => View(new AddBookFormModel
         {
             Categories = this.GetBookCategories()
@@ -37,3 +40,4 @@ namespace BookLibrary.Controllers
        
     }
 }
+

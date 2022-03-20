@@ -1,4 +1,5 @@
-﻿@model AddBookFormModel
+﻿
+@model AddBookFormModel
 
 @{
     ViewData["Title"] = "Add Book";
@@ -8,6 +9,7 @@
 <div class="row">
     <div class="col-sm-12 offset-lg-2 col-lg-8 offset-xl-3 col-xl-6">
         <h2 class="heading-margin text-center">Add Book</h2>
+
         <form method="post">
             <div class="form-group">
                 <label asp-for="Title"></label>
@@ -31,11 +33,16 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
-                <select asp-for="CategoryId" class="form-control">
-                    @foreach (var category in Model.Categories)
-                    {
-                        <option value="@category.Id">@category.Name</option>
-                    }
+                <select asp-for="CategoryId" class="form-select">
+                    <option value="">All</option>
+                    <option value="1">Literary Fiction</option>
+                    <option value="2">Horror</option>
+                    <option value="3">Historical Fiction</option>
+                    <option value="4">Fantasy</option>
+                    <option value="5">Detective and Mystery</option>
+                    <option value="6">Comic Book or Graphic Novel</option>
+                    <option value="7">Classics</option>
+                    <option value="8">Action and Adventure</option>   
                 </select>
             </div>
 

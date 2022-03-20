@@ -7,9 +7,10 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace BookLibrary.Extensions
 {
+
     public static class ApplicationBuilderExtensions
     {
-        
+
         public static IApplicationBuilder PrepareDatabase(
             this IApplicationBuilder app)
         {
@@ -17,13 +18,13 @@ namespace BookLibrary.Extensions
 
             var services = scopedServices.ServiceProvider;
 
-            
-           // var data = //scopedServices.ServiceProvider.GetService<BookLibraryDbConte//xt>();
-           //
-           // data.Database.Migrate();
-           
+
+            // var data = //scopedServices.ServiceProvider.GetService<BookLibraryDbConte//xt>();
+            //
+            // data.Database.Migrate();
+
             SeedCategories(services);
- 
+
             return app;
         }
 
@@ -34,18 +35,18 @@ namespace BookLibrary.Extensions
 
             data.Database.Migrate();
         }
-  
+
         private static void SeedCategories(IServiceProvider services)
         {
             var data = services.GetRequiredService<BookLibraryDbContext>();
 
             if (data.Categories.Any())
-           {
-               return;
-           }
-        
-          data.Categories.AddRange(new[]
-          {
+            {
+                return;
+            }
+
+            data.Categories.AddRange(new[]
+            {
               new Category { Name = "Literary Fiction" },
               new Category { Name = "Horror" },
               new Category { Name = "Historical Fiction" },
@@ -55,8 +56,9 @@ namespace BookLibrary.Extensions
               new Category { Name = "Classics" },
               new Category { Name = "Action and //Adventure" },
           });
-        
-           data.SaveChanges();
+
+            data.SaveChanges();
         }
     }
+
 }

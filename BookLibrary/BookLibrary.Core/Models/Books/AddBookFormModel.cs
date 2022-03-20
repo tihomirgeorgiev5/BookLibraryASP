@@ -3,6 +3,7 @@
 namespace BookLibrary.Core.Models.Books
 {
     
+    
     public class AddBookFormModel
     {
         public string Title { get; init; }
@@ -22,4 +23,5 @@ namespace BookLibrary.Core.Models.Books
         public IEnumerable<BookCategoryViewModel> Categories { get; set; }
 
     }
+    
 }
