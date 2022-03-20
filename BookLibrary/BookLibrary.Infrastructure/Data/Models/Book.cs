@@ -29,8 +29,6 @@ namespace BookLibrary.Infrastructure.Data.Models
         public string ImageUrl { get; set; }
 
         [Required]
-        [MaxLength(BookDescriptionMaxLength)]
-       
         public string Description { get; set; }
 
         public int Pages { get; set; }

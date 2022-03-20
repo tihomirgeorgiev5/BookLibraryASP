@@ -51,10 +51,10 @@ namespace BookLibrary.Extensions
               new Category { Name = "Horror" },
               new Category { Name = "Historical Fiction" },
               new Category { Name = "Fantasy" },
-              new Category { Name = "Detective and //Mystery" },
-              new Category { Name = "Comic Book or /Graphic /Novel" },
+              new Category { Name = "Detective and Mystery" },
+              new Category { Name = "Comic Book or Graphic Novel" },
               new Category { Name = "Classics" },
-              new Category { Name = "Action and //Adventure" },
+              new Category { Name = "Action and Adventure" },
           });
 
             data.SaveChanges();

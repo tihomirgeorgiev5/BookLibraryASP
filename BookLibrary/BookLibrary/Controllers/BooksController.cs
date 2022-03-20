@@ -25,7 +25,31 @@ using Microsoft.AspNetCore.Mvc;
         [HttpPost]
         public IActionResult Add(AddBookFormModel book)
         {
-            return View();
+            if (!this.data.Categories.Any(c => c.Id == book.CategoryId))
+            {
+                this.ModelState.AddModelError(nameof(book.CategoryId), "category does not exist.");
+            }
+            if (!ModelState.IsValid)
+            {
+                book.Categories = this.GetBookCategories();
+                return View(book);
+            }
+
+            var bookData = new Book
+            {
+                Title = book.Title,
+                Author = book.Author,
+                Description = book.Description,
+                ImageUrl = book.ImageUrl,
+                Year = book.Year,
+                CategoryId = book.CategoryId
+            };
+
+            this.data.Books.Add(bookData);
+
+            this.data.SaveChanges();
+
+            return RedirectToAction("Index", "Home");
         }
 
         private IEnumerable<BookCategoryViewModel> GetBookCategories()
