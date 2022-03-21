@@ -6,10 +6,10 @@ using Microsoft.EntityFrameworkCore;
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-var connectionString = builder.Configuration.GetConnectionString(@"Server=DESKTOP-SB9MJ7T\SQLEXPRESS;Database=BookLibrary;Trusted_Connection=True;Integrated Security=True;");
+var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
 
 builder.Services.AddDbContext<BookLibraryDbContext>(options =>
-    options.UseSqlServer(@"Server=DESKTOP-SB9MJ7T\SQLEXPRESS;Database=BookLibrary;Trusted_Connection=True;Integrated Security=True;"));
+    options.UseSqlServer(connectionString));
 builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 
 builder.Services.AddDefaultIdentity<IdentityUser>(options =>
@@ -38,7 +38,8 @@ else
     app.UseHsts();
 }
 
-app.UseHttpsRedirection()
+app
+    .UseHttpsRedirection()
    .UseStaticFiles()
    .UseRouting()
    .UseAuthentication()

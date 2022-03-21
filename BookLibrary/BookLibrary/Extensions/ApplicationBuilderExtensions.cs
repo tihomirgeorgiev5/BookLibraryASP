@@ -1,9 +1,6 @@
-﻿using System.Linq;
-using BookLibrary.Data;
+﻿using BookLibrary.Data;
 using BookLibrary.Infrastructure.Data.Models;
-using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.Extensions.DependencyInjection;
 
 namespace BookLibrary.Extensions
 {
