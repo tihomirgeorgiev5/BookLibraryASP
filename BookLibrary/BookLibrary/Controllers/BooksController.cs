@@ -27,7 +27,7 @@ using Microsoft.AspNetCore.Mvc;
         {
             if (!this.data.Categories.Any(c => c.Id == book.CategoryId))
             {
-                this.ModelState.AddModelError(nameof(book.CategoryId), "Category does not exist.");
+                this.ModelState.AddModelError(nameof(book.CategoryId), "category does not exist.");
             }
             if (!ModelState.IsValid)
             {
@@ -42,7 +42,7 @@ using Microsoft.AspNetCore.Mvc;
                 Description = book.Description,
                 ImageUrl = book.ImageUrl,
                 Year = book.Year,
-                CategoryId = book.CategoryId 
+                CategoryId = book.CategoryId
             };
 
             this.data.Books.Add(bookData);

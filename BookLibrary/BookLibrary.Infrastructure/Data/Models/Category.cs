@@ -17,7 +17,7 @@ namespace BookLibrary.Infrastructure.Data.Models
         
         public string Name { get; set; }
 
-        public IEnumerable<Book> Books { get; init; }
-
+        public ICollection<Book> Books { get; init; }
+        
     }
 }
