@@ -8,23 +8,24 @@ namespace BookLibrary.Core.Models.Books
     public class AddBookFormModel
     {
         [Required]
-        [StringLength(BookTitleMaxLength, MinimumLength = BookTitleMinLength)] 
+        [StringLength(BookTitleMaxLength, MinimumLength = BookTitleMinLength)]
         public string Title { get; init; }
 
         [Required]
-        [StringLength(BookAuthorMaxLength, MinimumLength =BookAuthorMinLength)]
+        [StringLength(BookAuthorMaxLength, MinimumLength = BookAuthorMinLength)]
         public string Author { get; init; }
 
+        [Required]
+        [StringLength(BookPublisherMaxLength, MinimumLength = BookPublisherMinLength)]
+        public string Publisher { get; init; }
+
+        [Required]
         [Display(Name = "Image URL")]
         [Url]
-        [Required]
         public string ImageUrl { get; init; }
 
         [Required]
-        [StringLength(
-            int.MaxValue,
-            MinimumLength = BookDescriptionMinLength,
-            ErrorMessage = "The field Description must be a string with a minimum length of {2}")]
+        [StringLength(BookPublisherMaxLength, MinimumLength = BookPublisherMinLength)]
         public string Description { get; init; }
 
         [Range(BookYearMinValue, BookYearMaxValue)]

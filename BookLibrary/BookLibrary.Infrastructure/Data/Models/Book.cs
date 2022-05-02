@@ -1,17 +1,12 @@
-﻿using BookLibrary.Infrastructure.Data.Models.Enums;
-using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
 using static BookLibrary.Infrastructure.Data.DataConstants;
 
 namespace BookLibrary.Infrastructure.Data.Models
 {
     public class Book
     {
-       
-        [Key]
-        [Required]
-        [MaxLength(IdMaxLength)]
-        public string Id { get; init; }
+
+        public int Id { get; init; }
 
         [Required]
         [MaxLength(BookTitleMaxLength)]
@@ -37,7 +32,7 @@ namespace BookLibrary.Infrastructure.Data.Models
 
         public int CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public Category Category { get; init; }
 
     }
 }
