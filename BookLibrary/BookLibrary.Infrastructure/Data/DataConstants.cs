@@ -2,39 +2,23 @@
 {
     public class DataConstants
     {
-        public const int IdMaxLength = 40;
+        public class Book
+        {
+            public const int IdMaxLength = 40;
+            public const int BookTitleMaxLength = 50;
+            public const int BookTitleMinLength = 2;
+            public const int BookAuthorMaxLength = 60;
+            public const int BookAuthorMinLength = 2;
 
-        public const int BookTitleMinLength = 1;
-        public const int BookTitleMaxLength = 50;
-        
+            public const int BookDescriptionMinLength = 10;
+            public const int BookDescriptionMaxLength = 10000;
 
-        public const int BookDescriptionMinLength = 5;
-
-        public const int BookAuthorMinLength = 2;
-        public const int BookAuthorMaxLength = 40;
-
-        public const int BookPublisherMinLength = 2;
-        public const int BookPublisherMaxLength = 30;
-
-        public const int BookYearMinValue = 1000;
-        public const int BookYearMaxValue = 2100;
-        
+            public const int BookPublisherMaxLength = 40;
+            public const int BookPublisherMinLength = 2;
+            public const int BookYearMinValue = 500;
+            public const int BookYearMaxValue = 2050;
 
 
-        public const int MinNameLength = 4;
-        public const int MaxNameLength = 100;
-
-        public const int UserMinPassword = 5;
-        public const int PasswordMaxLength = 20;
-        public const int PasswordMaxLengthInDb = 64;
-        public const int UserMinEmail = 10;
-        public const int UserMaxEmail = 60;
-        public const string UserEmailRegEx =
-            @"^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$";
-
-        public const int LanguageCodeMinLength = 2;
-        public const int LanguageCodeMaxLength = 3;
-       
-
+        }
     }
 }
