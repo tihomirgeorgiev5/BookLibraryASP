@@ -35,12 +35,13 @@ using Microsoft.AspNetCore.Mvc;
                 return View(book);
             }
 
-            var bookData = new Book
+            var bookData = new Book()
             {
                 Title = book.Title,
                 Author = book.Author,
                 Description = book.Description,
                 ImageUrl = book.ImageUrl,
+                Publisher = book.Publisher,
                 Year = book.Year,
                 CategoryId = book.CategoryId
             };

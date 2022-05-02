@@ -7,36 +7,21 @@ namespace BookLibrary.Extensions
 
     public static class ApplicationBuilderExtensions
     {
-
-        public static IApplicationBuilder PrepareDatabase(
-            this IApplicationBuilder app)
+        public static IApplicationBuilder PrepareDatabase(this IApplicationBuilder app)
         {
             using var scopedServices = app.ApplicationServices.CreateScope();
 
-            var services = scopedServices.ServiceProvider;
+            var data = scopedServices.ServiceProvider.GetService<BookLibraryDbContext>();
 
+            data.Database.Migrate();
 
-            // var data = //scopedServices.ServiceProvider.GetService<BookLibraryDbConte//xt>();
-            //
-            // data.Database.Migrate();
-
-            SeedCategories(services);
+            SeedCategories(data);
 
             return app;
         }
 
-        private static void MigrateDatabase(IServiceProvider services)
+        private static void SeedCategories(BookLibraryDbContext data)
         {
-
-            var data = services.GetRequiredService<BookLibraryDbContext>();
-
-            data.Database.Migrate();
-        }
-
-        private static void SeedCategories(IServiceProvider services)
-        {
-            var data = services.GetRequiredService<BookLibraryDbContext>();
-
             if (data.Categories.Any())
             {
                 return;
@@ -44,18 +29,19 @@ namespace BookLibrary.Extensions
 
             data.Categories.AddRange(new[]
             {
-              new Category { Name = "Literary Fiction" },
-              new Category { Name = "Horror" },
-              new Category { Name = "Historical Fiction" },
-              new Category { Name = "Fantasy" },
-              new Category { Name = "Detective and Mystery" },
-              new Category { Name = "Comic Book or Graphic Novel" },
-              new Category { Name = "Classics" },
-              new Category { Name = "Action and Adventure" },
-          });
+                new Category { Name = "All"},
+                new Category { Name = "Action and Adventure"},
+                new Category { Name = "Classics"},
+                new Category { Name = "Comic Book or Graphic Novel"},
+                new Category { Name = "Detective and Mystery"},
+                new Category { Name = "Fantasy"},
+                new Category { Name = "Action and Adventure"},
+                new Category { Name = "Historical Fiction"},
+                new Category { Name = "Horror"},
+                new Category { Name = "Literary"},
+            });
 
             data.SaveChanges();
         }
     }
-
 }
