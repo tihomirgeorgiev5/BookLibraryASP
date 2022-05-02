@@ -26,6 +26,11 @@
                 <span asp-validation-for="ImageUrl" class="small text-danger"></span>
             </div>
             <div class="form-group">
+                <label asp-for="Publisher"></label>
+                <input asp-for="Publisher" class="form-control" placeholder="Book Publisher here..">
+                <span asp-validation-for="Publisher" class="small text-danger"></span>
+            </div>
+            <div class="form-group">
                 <label asp-for="Description"></label>
                 <textarea asp-for="Description" rows="4" class="form-control" placeholder="This is the best book..."></textarea>
                 <span asp-validation-for="Description" class="small text-danger"></span>
@@ -37,17 +42,13 @@
             </div>
             <div class="form-group">
                 <label asp-for="CategoryId"></label>
-                <select asp-for="CategoryId" class="form-select">
-                    <option value="">All</option>
-                    <option value="1">Literary Fiction</option>
-                    <option value="2">Horror</option>
-                    <option value="3">Historical Fiction</option>
-                    <option value="4">Fantasy</option>
-                    <option value="5">Detective and Mystery</option>
-                    <option value="6">Comic Book or Graphic Novel</option>
-                    <option value="7">Classics</option>
-                    <option value="8">Action and Adventure</option>   
+                <select asp-for="CategoryId" class="form-control">
+                    @foreach (var category in Model.Categories)
+                    {
+                        <option value="@category.Id">@category.Name</option>
+                    }
                 </select>
+                <span asp-validation-for="CategoryId" class="small text-danger"></span>
             </div>
             <input class="btn btn-primary" type="submit" value="Save" />
         </form>
