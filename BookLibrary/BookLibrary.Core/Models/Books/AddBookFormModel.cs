@@ -1,5 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
-using static BookLibrary.Infrastructure.Data.DataConstants;
+using static BookLibrary.Infrastructure.Data.DataConstants.Book;
 
 namespace BookLibrary.Core.Models.Books
 {
