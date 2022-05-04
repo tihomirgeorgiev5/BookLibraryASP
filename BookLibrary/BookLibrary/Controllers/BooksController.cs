@@ -5,17 +5,17 @@ using Microsoft.AspNetCore.Mvc;
 
 
 
- namespace BookLibrary.Controllers
+namespace BookLibrary.Controllers
 {
     public class BooksController : Controller
     {
         private readonly BookLibraryDbContext data;
 
         public BooksController(BookLibraryDbContext data)
-       
+
            => this.data = data;
 
-        
+
         public IActionResult Add() => View(new AddBookFormModel
         {
             Categories = this.GetBookCategories()
@@ -27,7 +27,7 @@ using Microsoft.AspNetCore.Mvc;
         {
             if (!this.data.Categories.Any(c => c.Id == book.CategoryId))
             {
-                this.ModelState.AddModelError(nameof(book.CategoryId), "category does not exist.");
+                this.ModelState.AddModelError(nameof(book.CategoryId),"category does not exist.");
             }
             if (!ModelState.IsValid)
             {
@@ -39,11 +39,12 @@ using Microsoft.AspNetCore.Mvc;
             {
                 Title = book.Title,
                 Author = book.Author,
+                CategoryId = book.CategoryId,
                 Description = book.Description,
                 ImageUrl = book.ImageUrl,
                 Publisher = book.Publisher,
                 Year = book.Year,
-                CategoryId = book.CategoryId
+               
             };
 
             this.data.Books.Add(bookData);
@@ -62,7 +63,7 @@ using Microsoft.AspNetCore.Mvc;
                 Name = c.Name
             })
             .ToList();
-       
+
     }
 }
 
